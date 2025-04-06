@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cognito
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  aws:
+    cognito:
+        user-pool-id: ${AWS_COGNITO_USER_POOL_ID}
+        client-id: ${AWS_COGNITO_CLIENT_ID}
+        client-secret: ${AWS_COGNITO_CLIENT_SECRET}
+        region: ${AWS_COGNITO_REGION}
+        jwk-url: https://cognito-idp.${AWS_COGNITO_REGION}.amazonaws.com/${AWS_COGNITO_USER_POOL_ID}/.well-known/jwks.json
+        iss: https://cognito-idp.${AWS_COGNITO_REGION}.amazonaws.com/${AWS_COGNITO_USER_POOL_ID}
+        account-id: ${AWS_COGNITO_ACCOUNT_ID}
+        account-pass: ${AWS_COGNITO_ACCOUNT_PASS}
+        
